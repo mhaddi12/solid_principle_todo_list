@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:lottie/lottie.dart';
 import '../Function/function.dart';
 import '../model/todo_list_model.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -37,7 +38,8 @@ class _HomePageState extends State<HomePage> {
       ),
       body: SafeArea(
         child: todoBox == null
-            ? const Center(child: CircularProgressIndicator())
+            ?  Center(child: Lottie.asset("assets/images/loading.json",
+            width: MediaQuery.of(context).size.width * 0.5),)
             : _buildTodoList(),
       ),
       floatingActionButton: FloatingActionButton(
