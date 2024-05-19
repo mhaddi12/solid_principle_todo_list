@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
       itemBuilder: (context, index) {
         final todo = todos[index];
         return Slidable(
-          startActionPane: ActionPane(motion: const ScrollMotion(), children: [
+          startActionPane: ActionPane(motion: const StretchMotion(), children: [
             SlidableAction(
               onPressed: (value) {
                 setState(() {
@@ -80,14 +80,15 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.all(20.0),
             margin: const EdgeInsets.all(10.0),
             decoration: BoxDecoration(
-              color: Colors.white24,
+              color: Colors.white,
               borderRadius: BorderRadius.circular(12.0),
+              border: Border.all(width: 0.5, color: Colors.purpleAccent),
               boxShadow: const [
                 BoxShadow(
-                  offset: Offset(0, 2),
-                  color: Colors.black12,
-                  blurRadius: 1.0,
-                  spreadRadius: 2.0,
+                  offset: Offset(0, 1),
+                  color: Colors.grey,
+                  blurRadius: 2.0,
+                  spreadRadius: 1.0,
                 ),
               ],
             ),
@@ -95,6 +96,8 @@ class _HomePageState extends State<HomePage> {
               title: Text(
                 todo.title,
                 style: TextStyle(
+                  fontStyle: FontStyle.italic,
+                  fontWeight: FontWeight.bold,
                   decoration: todo.check ?? false
                       ? TextDecoration.lineThrough
                       : TextDecoration.none,
